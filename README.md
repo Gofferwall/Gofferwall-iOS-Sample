@@ -15,8 +15,8 @@
 - [2. Initialize](#2-initialize)
 - [3. 사용자 정보 설정](#3-사용자-정보-설정)
 - [4. Offerwall](#4-offerwall)
-#### [Gofferwall Error Information](./blob/main/api_documentation.md#model)
-#### [Gofferwall Server 연동하기](./blob/main/reward_callback_info.md)
+#### [Gofferwall Error Information](./api_documentation.md#model)
+#### [Gofferwall Server 연동하기](./reward_callback_info.md)
 #### [Xcode15 Sandbox Error](#xcode15-sandbox-error-1)
 <br/><br/><br/>
 
@@ -136,10 +136,10 @@ func onOfferwallAdFailed(toShow unitID: String!, error: GofferwallError!) {
 <br/><br/>
 
 # Gofferwall Error Information
-- [Error 정보](./blob/main/api_documentation.md#model)
+- [Error 정보](./api_documentation.md#model)
 <br/><br/><br/>
 
-# [Gofferwall Server 연동하기](./blob/main/reward_callback_info.md)
+# [Gofferwall Server 연동하기](./reward_callback_info.md)
 <br/><br/><br/>
 
 # Xcode15 Sandbox Error
