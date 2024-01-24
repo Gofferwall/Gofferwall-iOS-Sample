@@ -69,7 +69,7 @@ pod install --repo-update
 ```
 <br/>
 
-#### C. SKAdNetwork 추가 ([Download](./releases/download/1.0.0/GofferwallSkAdNetworks.plist))
+#### C. SKAdNetwork 추가 ([Download](../../releases/download/1.0.0/GofferwallSkAdNetworks.plist))
 ```csharp
 <dict>
     <key>SKAdNetworkItems</key>
@@ -81,7 +81,7 @@ pod install --repo-update
     </array>
 </dict>
 ```
-- SKAdNetwork Download File 내용을 info.plist에 추가 ([Download](./releases/download/1.0.0/GofferwallSkAdNetworks.plist))
+- SKAdNetwork Download File 내용을 info.plist에 추가 ([Download](../../releases/download/1.0.0/GofferwallSkAdNetworks.plist))
 <br/><br/><br/>
 
 # Gofferwall Overview
