@@ -67,6 +67,21 @@ pod install --repo-update
 <key>NSUserTrackingUsageDescription</key>
 <string></string>
 ```
+<br/>
+
+#### C. SKAdNetwork 추가 ([Download](./releases/download/1.0.0/GofferwallSkAdNetworks.plist))
+```csharp
+<dict>
+    <key>SKAdNetworkItems</key>
+    <array>
+	<dict>
+	    <key>SKAdNetworkIdentifier</key>
+	    <string></string>
+	</dict>
+    </array>
+</dict>
+```
+- SKAdNetwork Download File 내용을 info.plist에 추가 ([Download](./releases/download/1.0.0/GofferwallSkAdNetworks.plist))
 <br/><br/><br/>
 
 # Gofferwall Overview
