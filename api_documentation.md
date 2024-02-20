@@ -9,6 +9,8 @@
   - getSDKVersion
 - [Offerwall](#offerwall)
   - showOfferWall:unitID:delegate
+  - showOfferwall4TNK:unitID:delegate
+  - showOfferwall4Tapjoy:unitID:delegate
 #### [Callback](#callback-1)
 - [Core](#core-1)
   - onInitializedCallback:isSuccess
@@ -73,7 +75,39 @@
 
 #### Offerwall
 ##### - (BOOL)showOfferWall:unitID:delegate
-- Gofferwall 의 Offerwall ViewController 를 Display 합니다.
+- Gofferwall 의 Offerwall ViewController 를 IP로 국내(TNK)/국외(Tapjoy)를 구분하여 Display 합니다.
+- GofferwallDelegate의 onOfferwallAdOpened(), onOfferwallAdFailedToShow() callbacks을 통해 Offerwall ViewController 의 Open, Fail 정보를 얻습니다.
+⚠️ `initialize:mediaId:mediaSecret:delegate` 가 먼저 호출되어야 합니다.
+
+| Parameters |                           |
+| ---------- | ------------------------- |
+| unitId     | 보여질 Offerwall의 UnitID |
+| delegate   | Delegate callbacks을 위한 delegate |
+
+| Return     |                              |
+| ---------- | ---------------------------- |
+| isSuccesss | UnitID이 잘못 되었을 경우 NO |
+
+<br>
+
+##### - (BOOL)showOfferwall4TNK:unitID:delegate
+- Gofferwall 의 TNK Offerwall ViewController 를 Display 합니다.
+- GofferwallDelegate의 onOfferwallAdOpened(), onOfferwallAdFailedToShow() callbacks을 통해 Offerwall ViewController 의 Open, Fail 정보를 얻습니다.
+⚠️ `initialize:mediaId:mediaSecret:delegate` 가 먼저 호출되어야 합니다.
+
+| Parameters |                           |
+| ---------- | ------------------------- |
+| unitId     | 보여질 Offerwall의 UnitID |
+| delegate   | Delegate callbacks을 위한 delegate |
+
+| Return     |                              |
+| ---------- | ---------------------------- |
+| isSuccesss | UnitID이 잘못 되었을 경우 NO |
+
+<br>
+
+##### - (BOOL)showOfferwall4Tapjoy:unitID:delegate
+- Gofferwall 의 Tapjoy Offerwall ViewController 를 Display 합니다.
 - GofferwallDelegate의 onOfferwallAdOpened(), onOfferwallAdFailedToShow() callbacks을 통해 Offerwall ViewController 의 Open, Fail 정보를 얻습니다.
 ⚠️ `initialize:mediaId:mediaSecret:delegate` 가 먼저 호출되어야 합니다.
 
@@ -127,12 +161,12 @@
 | code        | error's code (GofferwallErrorCode) |
 | description | error's description              |
 
-| Error Code       | Cause |
-| ---------------- | ----- |
-| INTERNAL_ERROR   | Gofferwall Sdk 내부 오류 혹은 Gofferwall Server 오류 |
-| MEDIATION_ERROR  | Mediation 광고 Network의 3rd party sdk 오류 |
-| INITIALIZE_ERROR | Gofferwall.Sdk.Initialize 시 mediaId/mediaSecret이 유효하지 않음 |
-| SERVER_SETTING_ERROR | 광고를 보여주기 위해 필요한 내부 설정값 오류. Adiscope admin 설정의 수익화, 유닛 활성화가 OFF인 경우 |
-| INVALID_REQUEST | Show시, 입력한 unitId 오류 |
-| NETWORK_ERROR | Network read/write timed out 혹은 Network connection 오류 |
-| USER_SETTING_ERROR | 오퍼월 Show를 호출했는데 userId 세팅이 안 되어 있는 경우 |
+| Error Code       | Cause | Instruction |
+| ---------------- | ----- | ----------- |
+| INTERNAL_ERROR   | Gofferwall Sdk 내부 오류 혹은 Gofferwall Server 오류 | 지속적으로 발생 시 Gofferwall 개발팀에 문의 |
+| MEDIATION_ERROR  | Mediation 광고 Network의 3rd party sdk 오류 | 지속적으로 발생 시 Gofferwall 개발팀에 문의 |
+| INITIALIZE_ERROR | Gofferwall.Sdk.Initialize 시 mediaId/mediaSecret이 유효하지 않음 | Adiscope admin page에서 등록된 media (application)의 id와 secret을 확인 |
+| SERVER_SETTING_ERROR | 광고를 보여주기 위해 필요한 내부 설정값 오류. Adiscope admin 설정의 수익화, 유닛 활성화가 OFF인 경우 | Adiscope admin page의 설정 확인 |
+| INVALID_REQUEST | Show시, 입력한 unitId 오류 | Adiscope admin page에 정의된 각 unitId를 다시 확인 후 Show()에 입력 |
+| NETWORK_ERROR | Network read/write timed out 혹은 Network connection 오류 | Device의 network 연결 상태를 확인 |
+| USER_SETTING_ERROR | 오퍼월 Show를 호출했는데 userId 세팅이 안 되어 있는 경우 | setUserId 호출 확인 |

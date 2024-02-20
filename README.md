@@ -1,8 +1,8 @@
 # Gofferwall for iOS Integration
-[![GitHub package.json version](https://img.shields.io/badge/Android-1.0.0-blue)](https://github.com/Gofferwall/Gofferwall-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-1.0.0-blue)](../../releases)
+[![GitHub package.json version](https://img.shields.io/badge/Android-1.1.0-blue)](https://github.com/Gofferwall/Gofferwall-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-1.1.0-blue)](../../releases)
 
-- iOS 12.0 + / iPadOS 13.0 + / Xcode 14.1 +
+- iOS 12.0 + / iPadOS 13.0 + / Xcode 14.3 +
 <br/>
 
 ## Contents
@@ -15,8 +15,8 @@
 - [2. Initialize](#2-initialize)
 - [3. 사용자 정보 설정](#3-사용자-정보-설정)
 - [4. Offerwall](#4-offerwall)
-#### [Gofferwall Error Information](./api_documentation.md#model)
-#### [Gofferwall Server 연동하기](./reward_callback_info.md)
+#### [Gofferwall Server 연동하기](./blob/main/reward_callback_info.md)
+#### [Gofferwall Error Information](./blob/main/api_documentation.md#model)
 #### [Xcode15 Sandbox Error](#xcode15-sandbox-error-1)
 <br/><br/><br/>
 
@@ -38,7 +38,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'Gofferwall', '1.0.0'
+    pod 'Gofferwall', '1.1.0'
 end
 ```
 - CocoaPods의 Xcode Project내에 Podfile에서 기술
@@ -67,21 +67,6 @@ pod install --repo-update
 <key>NSUserTrackingUsageDescription</key>
 <string></string>
 ```
-<br/>
-
-#### C. SKAdNetwork 추가 ([Download](../../releases/download/1.0.0/GofferwallSkAdNetworks.plist))
-```csharp
-<dict>
-    <key>SKAdNetworkItems</key>
-    <array>
-	<dict>
-	    <key>SKAdNetworkIdentifier</key>
-	    <string></string>
-	</dict>
-    </array>
-</dict>
-```
-- SKAdNetwork Download File 내용을 info.plist에 추가 ([Download](../../releases/download/1.0.0/GofferwallSkAdNetworks.plist))
 <br/><br/><br/>
 
 # Gofferwall Overview
@@ -131,15 +116,34 @@ GofferwallInterface.sharedInstance().setUserId(USER_ID);
 <br/><br/><br/>
 
 ## 4. Offerwall
-### A. Show
+### A. Global Show
 ```swift
 let OFFERWALL_UNIT_ID = "";      // 관리자를 통해 발급
 GofferwallInterface.sharedInstance().showOfferwall(OFFERWALL_UNIT_ID, delegate: self)
 ```
+- Gofferwall 의 Offerwall ViewController 를 IP로 국내(TNK)/국외(Tapjoy)를 구분하여 Display
 - `Show`가 실행되면 `onOfferwallAdOpened`와 `onOfferwallAdFailedToShow` 중 하나가 항상 호출
 <br/><br/>
 
-### B. Callbacks
+### B. TNK Show
+```swift
+let OFFERWALL_UNIT_ID = "";      // 관리자를 통해 발급
+GofferwallInterface.sharedInstance().showOfferwall4TNK(OFFERWALL_UNIT_ID, delegate: self)
+```
+- Gofferwall 의 TNK Offerwall ViewController 를 Display
+- `Show`가 실행되면 `onOfferwallAdOpened`와 `onOfferwallAdFailedToShow` 중 하나가 항상 호출
+<br/><br/>
+
+### C. Tapjoy Show
+```swift
+let OFFERWALL_UNIT_ID = "";      // 관리자를 통해 발급
+GofferwallInterface.sharedInstance().showOfferwall4Tapjoy(OFFERWALL_UNIT_ID, delegate: self)
+```
+- Gofferwall 의 Tapjoy Offerwall ViewController 를 Display
+- `Show`가 실행되면 `onOfferwallAdOpened`와 `onOfferwallAdFailedToShow` 중 하나가 항상 호출
+<br/><br/>
+
+### D. Callbacks
 ```swift
 func onOfferwallAdOpened(_ unitID: String!) {
     // Offerwall이 열림
@@ -150,11 +154,11 @@ func onOfferwallAdFailed(toShow unitID: String!, error: GofferwallError!) {
 ```
 <br/><br/>
 
-# Gofferwall Error Information
-- [Error 정보](./api_documentation.md#model)
+# [Gofferwall Server 연동하기](./blob/main/reward_callback_info.md)
 <br/><br/><br/>
 
-# [Gofferwall Server 연동하기](./reward_callback_info.md)
+# Gofferwall Error Information
+- [Error 정보](./blob/main/api_documentation.md#model)
 <br/><br/><br/>
 
 # Xcode15 Sandbox Error

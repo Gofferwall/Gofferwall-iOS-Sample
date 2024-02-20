@@ -6,6 +6,5 @@ target 'Gofferwall-iOS-Sample' do
   use_frameworks!
 
   # Pods for Gofferwall-iOS-Sample
-#  pod 'Gofferwall', '1.0.0'
-  pod 'GOfferwall-beta', '0.0.2'
+  pod 'Gofferwall', '1.1.0'
 end
