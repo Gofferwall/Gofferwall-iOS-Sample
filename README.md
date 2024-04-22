@@ -1,6 +1,7 @@
 # Gofferwall for iOS Integration
-[![GitHub package.json version](https://img.shields.io/badge/Android-1.1.0-blue)](https://github.com/Gofferwall/Gofferwall-Android-Sample)
-[![GitHub package.json version](https://img.shields.io/badge/iOS-1.1.0-blue)](../../releases)
+[![GitHub package.json version](https://img.shields.io/badge/Unity-1.2.0-blue)](https://github.com/Gofferwall/Gofferwall-Unity-UPM)
+[![GitHub package.json version](https://img.shields.io/badge/Android-1.2.0-blue)](https://github.com/Gofferwall/Gofferwall-Android-Sample)
+[![GitHub package.json version](https://img.shields.io/badge/iOS-1.2.0-blue)](../../releases)
 
 - iOS 12.0 + / iPadOS 13.0 + / Xcode 14.3 +
 <br/>
@@ -38,7 +39,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'Gofferwall', '1.1.0'
+    pod 'Gofferwall', '1.2.0'
 end
 ```
 - CocoaPods의 Xcode Project내에 Podfile에서 기술
