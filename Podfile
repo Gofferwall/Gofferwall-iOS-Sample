@@ -6,5 +6,5 @@ target 'Gofferwall-iOS-Sample' do
   use_frameworks!
 
   # Pods for Gofferwall-iOS-Sample
-  pod 'Gofferwall', '1.2.0'
+  pod 'Gofferwall', '1.3.0'
 end

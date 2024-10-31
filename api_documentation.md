@@ -11,6 +11,8 @@
   - showOfferWall:unitID:delegate
   - showOfferwall4TNK:unitID:delegate
   - showOfferwall4Tapjoy:unitID:delegate
+  - setColorOfferwall4TNK:red:green:blue:alpha
+  - setPointIconOfferwall4TNK:imageName
 #### [Callback](#callback-1)
 - [Core](#core-1)
   - onInitializedCallback:isSuccess
@@ -119,6 +121,37 @@
 | Return     |                              |
 | ---------- | ---------------------------- |
 | isSuccesss | UnitID이 잘못 되었을 경우 NO |
+
+<br>
+
+##### - (BOOL)setColorOfferwall4TNK:red:green:blue:alpha
+- Gofferwall 의 TNK Offerwall에서 색상 값을 변경합니다.   
+⚠️ TNK Offerwall이 동작 후에는 작동되지 않습니다.
+
+| Parameters |                           |
+| ---------- | ------------------------- |
+| red        | RGBA의 Red값 (0~1)         |
+| green      | RGBA의 Green값 (0~1)       |
+| blue       | RGBA의 Blue값 (0~1)        |
+| alpha      | RGBA의 Alpha값 (0~1)       |
+
+| Return     |                              |
+| ---------- | ---------------------------- |
+| isSuccesss | RGBA Color값이 잘못 되었을 경우 NO |
+
+<br>
+
+##### - (BOOL)setPointIconOfferwall4TNK:imageName
+- Gofferwall 의 TNK Offerwall에서 Rewarded 이미지가 변경됩니다.   
+⚠️ TNK Offerwall이 동작 후에는 작동되지 않습니다.
+
+| Parameters |                           |
+| ---------- | ------------------------- |
+| imageName  | 적용할 이미지 이름             |
+
+| Return     |                              |
+| ---------- | ---------------------------- |
+| isSuccesss | 이미지 이름이 없을 경우 NO |
 
 <br><br>
 
